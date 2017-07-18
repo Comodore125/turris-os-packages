@@ -16,7 +16,7 @@ PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=\
   http://mirror.nodesdirect.com/mariadb//mariadb-$(PKG_VERSION)/source/
 
-PKG_MD5SUM:=3d454cdadbd3208e1c9c23e5338a62b0
+PKG_MD5SUM:=81727986035c5835e0fbfdf99af71428
 PKG_MAINTAINER:=Jo-Philipp Wich <jo@mein.io>
 PKG_LICENSE:=GPL-2.0
 
