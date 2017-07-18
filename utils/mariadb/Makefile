@@ -27,6 +27,10 @@ HOST_BUILD_DEPENDS:=ncurses/host openssl/host
 
 PKG_FIXUP:=libtool
 
+HOST_CFLAGS+= -I$(STAGING_DIR_HOST)/openssl-host/include
+HOST_CXXFLAGS+= -I$(STAGING_DIR_HOST)/openssl-host/include
+HOST_LDFLAGS+= -L$(STAGING_DIR_HOST)/openssl-host/lib
+
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/host-build.mk
 include $(INCLUDE_DIR)/cmake.mk
