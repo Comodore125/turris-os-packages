@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 include $(INCLUDE_DIR)/uclibc++.mk
 
 PKG_NAME:=mariadb
-PKG_VERSION:=10.2.6
+PKG_VERSION:=10.2.7
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
@@ -27,10 +27,6 @@ HOST_BUILD_DEPENDS:=ncurses/host openssl/host
 
 PKG_FIXUP:=libtool
 
-HOST_CFLAGS+= -I$(STAGING_DIR_HOST)/openssl-host/include
-HOST_CXXFLAGS+= -I$(STAGING_DIR_HOST)/openssl-host/include
-HOST_LDFLAGS+= -L$(STAGING_DIR_HOST)/openssl-host/lib
-
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/host-build.mk
 include $(INCLUDE_DIR)/cmake.mk
@@ -45,6 +41,7 @@ CMAKE_OPTIONS:= -DSTACK_DIRECTION=-1 \
                 -DWITH_WSREP=OFF \
                 -DWITH_INNODB_LZO=OFF \
                 -DWITH_INNODB_BZIP2=OFF \
+                -DWITH_SSL=$(STAGING_DIR_HOST)/openssl-host \
                 -DINSTALL_MYSQLSHAREDIR=share/mariadb \
                 -DINSTALL_LAYOUT=RPM \
                 -DINSTALL_PLUGINDIR=lib/mariadb/plugin \
