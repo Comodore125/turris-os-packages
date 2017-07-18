@@ -41,7 +41,6 @@ CMAKE_OPTIONS:= -DSTACK_DIRECTION=-1 \
                 -DWITH_WSREP=OFF \
                 -DWITH_INNODB_LZO=OFF \
                 -DWITH_INNODB_BZIP2=OFF \
-                -DWITH_SSL=$(STAGING_DIR_HOST)/openssl-host \
                 -DINSTALL_MYSQLSHAREDIR=share/mariadb \
                 -DINSTALL_LAYOUT=RPM \
                 -DINSTALL_PLUGINDIR=lib/mariadb/plugin \
@@ -84,6 +83,7 @@ define Host/Configure
                         -DCMAKE_STRIP=: \
                         -DCMAKE_INSTALL_PREFIX=$(STAGING_DIR_HOST) \
                         -DCMAKE_PREFIX_PATH=$(STAGING_DIR_HOST) \
+                	-DWITH_SSL=$(STAGING_DIR_HOST)/openssl-host \
                         -DCMAKE_SKIP_RPATH=TRUE  \
 			-DCURSES_INCLUDE_PATH=$(STAGING_DIR_HOST)/usr/include \
 			-DCURSES_LIBRARY=$(STAGING_DIR_HOST)/usr/lib \
